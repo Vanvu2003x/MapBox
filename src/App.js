@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import Map from "./Components/MapBoxMap";
+import SearchBar from "./Components/SearchBar";
+import { LocationProvider } from "./contexts/locationContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LocationProvider>
+      <div style={{ position: 'relative', height: '100vh'}}>
+         <Map />
+         <div style={{
+            position: 'absolute',
+            top: 10,
+            left: 10
+         }} >
+          <SearchBar></SearchBar>
+          </div>
+      </div>
+    </LocationProvider>
   );
 }
 
